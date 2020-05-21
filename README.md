@@ -1,4 +1,4 @@
 # OSM-Stuttgart
-# Dateien zur Einführung overpass
-# pdf: Vortrag
-# txt: verwendete Abfragen
+Dateien zur Einführung overpass
+pdf: Vortrag
+txt: verwendete Abfragen
