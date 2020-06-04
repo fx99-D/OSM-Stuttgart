@@ -19,7 +19,7 @@ out body;
 >;
 out skel qt;
 
-Seite 8:
+Seite 9:
 [out:json][timeout:25];
 // fetch area “Böblingen” to search in
 {{geocodeArea:Böblingen}}->.searchArea;
@@ -31,7 +31,7 @@ nwr["amenity"="restaurant"][website](area.searchArea);
 out body;
 >; out skel qt;
 
-Seite 9:
+Seite 10:
 [out:json][timeout:25];
 // fetch area “Böblingen” to search in
 {{geocodeArea:Böblingen}}->.searchArea;
@@ -44,7 +44,7 @@ nwr[tourism=hotel][website](area.searchArea);
 out body;
 >; out skel qt;
 
-Seite 10:
+Seite 11:
 [out:json][timeout:25];
 // gather results
 (
@@ -58,7 +58,7 @@ out body;
 >;
 out skel qt;
 
-Seite 11:
+Seite 12:
 [out:json][timeout:25];
 // fetch area “Böblingen” to search in
 {{geocodeArea:Böblingen}}->.searchArea;
@@ -83,7 +83,7 @@ nwr[amenity=restaurant](area.searchArea);
 out body;
 >; out skel qt;
 
-Seite 13:
+Seite 14:
 [out:csv(::id,::type,name,cuisine,website)] [timeout:25];
 // fetch area “Böblingen” to search in
 {{geocodeArea:Böblingen}}->.searchArea;
@@ -95,7 +95,7 @@ way["amenity"="restaurant"][website](area.searchArea);
 out body;
 //>; out skel qt;
 
-Seite 14:
+Seite 15:
 [out:json][timeout:25];
 // fetch area “Böblingen” to search in
 {{geocodeArea:Böblingen}}->.searchArea;
@@ -107,10 +107,24 @@ way["amenity"="restaurant"][website](area.searchArea);
 out body;
 //>; out skel qt;
 
-Seite 17:
+Seite 19:
 [timeout:180];
 nwr[~"^.*:covid19$"~"."]({{bbox}});
 out meta;
+
+Seite 22:
+relation[name="Martinusweg Hauptweg"][type=superroute];
+out meta;
+>>; out skel qt;
+// die gefundenen Relation ist eine Superrelation mit Relationen als Members
+// daher ist >>; notwendig
+
+relation[name="Martinusweg HW-35-11 Herrenberg - Böblingen"][type=route];
+out meta;
+>; out skel qt;
+// die gefundenen Relation ist eine einfache Relation mit nodes und ways als Members
+// daher ist >; ausreichend, >>;  tuts aber auch
+
 
 Beispiel CSS
 // speedlimits visualized in Gärtringen
